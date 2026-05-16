@@ -164,9 +164,21 @@ closeProjectMenu.addEventListener("click", () => {
 const projectLinks = document.querySelectorAll(".project-menu-list a");
 
 projectLinks.forEach(link => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const href = link.getAttribute("href");
+        const target = document.querySelector(href);
+
         projectMenu.classList.remove("is-open");
         document.body.classList.remove("menu-open");
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
     });
 });
 
