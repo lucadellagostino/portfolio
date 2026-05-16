@@ -115,29 +115,21 @@ function updateNavLinks() {
 
     if (prevProject) {
 
-        prevBtn.href = `#${prevProject.id}`;
-        prevBtn.style.opacity = "1";
-        prevBtn.style.pointerEvents = "auto";
+    prevBtn.dataset.target = prevProject.id;
 
     } else {
 
-        prevBtn.href = "#top";
-        prevBtn.style.opacity = "1";
-        prevBtn.style.pointerEvents = "auto";
+    prevBtn.dataset.target = "top";
 
     }
 
     if (nextProject) {
 
-        nextBtn.href = `#${nextProject.id}`;
-        nextBtn.style.opacity = "1";
-        nextBtn.style.pointerEvents = "auto";
+    nextBtn.dataset.target = nextProject.id;
 
     } else {
 
-        nextBtn.href = "#footer";
-        nextBtn.style.opacity = "1";
-        nextBtn.style.pointerEvents = "auto";
+    nextBtn.dataset.target = "footer";
 
     }
 
@@ -176,4 +168,54 @@ projectLinks.forEach(link => {
         projectMenu.classList.remove("is-open");
         document.body.classList.remove("menu-open");
     });
+});
+
+const backToTopBtn = document.querySelector(".back-bottom");
+
+backToTopBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+prevBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const targetId = prevBtn.dataset.target;
+
+    if (targetId === "top") {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        return;
+    }
+
+    const target = document.getElementById(targetId);
+
+    if (target) {
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+});
+
+nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const targetId = nextBtn.dataset.target;
+    const target = document.getElementById(targetId);
+
+    if (target) {
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
 });
