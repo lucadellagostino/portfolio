@@ -691,7 +691,7 @@ video,
     color: var(--color-bg);
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1200px) {
     
     :root {
         --space-inline: 30px;
@@ -955,7 +955,8 @@ video,
     }
 
     .project-title-row {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column !important;
         align-items: flex-start;
         gap: 10px;
     }
