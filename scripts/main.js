@@ -17,16 +17,35 @@ hoverElements.forEach(el => {
     });
 });
 
-function downloadCV(e) {
-  e.preventDefault();
+const downloadCVLink = document.getElementById("downloadCV");
 
-  const link = document.createElement('a');
-  link.href = "assets/download/luca_dell'agostino_cv.pdf";
-  link.download = "luca_dellagostino_cv.pdf";
+if (downloadCVLink) {
 
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+    downloadCVLink.addEventListener("click", (e) => {
+
+        const isTouchDevice =
+            ("ontouchstart" in window) ||
+            (navigator.maxTouchPoints > 0);
+
+        if (isTouchDevice) {
+            return;
+        }
+
+        e.preventDefault();
+
+        const link = document.createElement("a");
+
+        link.href = "/assets/download/luca_dell'agostino_cv.pdf";
+        link.download = "luca_dellagostino_cv.pdf";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+    });
+
 }
 
 const floatingNav = document.querySelector(".floating-nav");
