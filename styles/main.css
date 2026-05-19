@@ -37,7 +37,7 @@ img {
 
 @font-face {
     font-family: 'Inter';
-    src: url('../assets/fonts/InterVariable.ttf') format('truetype');
+    src: url('../assets/fonts/InterVariable.woff2') format('truetype');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -165,7 +165,7 @@ video,
 .hero-content {
     display: flex;
     flex-direction: column;
-    min-height: calc(100dvh - var(--space-block));
+    min-height: calc(100svh - var(--space-block));
     align-items: flex-start;
     width: 100%;
 }
