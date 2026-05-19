@@ -722,7 +722,7 @@ video,
     }
 
     .hero-content {
-        min-height: calc(100dvh - 32px);
+        min-height: calc(100svh - 32px);
     }
 
     .hero-text {
@@ -927,7 +927,7 @@ video,
     }
 
     .hero-content {
-        min-height: calc(100dvh - 20px);
+        min-height: calc(100svh - 20px);
     }
 
     .hero-text {
